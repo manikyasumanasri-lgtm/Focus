@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Gym - Daily Attention & Brain Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="brand-logo">
+      <div class="logo-icon">🧠</div>
+      <span>FocusGym</span>
+    </a>
+    <div class="nav-actions">
+      <button class="btn-icon" id="sound-btn" onclick="toggleSound()">🔇 Sound Off</button>
+      <div style="font-weight:700; color:var(--primary-blue);" id="header-streak">0 Days Streak</div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Banner -->
+    <header class="hero-banner">
+      <div>
+        <div class="badge-tag">DAILY 5-MIN BRAIN WORKOUT</div>
+        <h1 class="hero-title">Train Your <span>Focus</span> Every Day.</h1>
+        <p class="hero-desc">Measure your attention score across three daily cognitive mini-games and compare your score with how focused you feel.</p>
+        <button class="btn-blue" onclick="document.getElementById('workout-arena').scrollIntoView({behavior:'smooth'})">Start Workout &rarr;</button>
+      </div>
+
+      <div class="metrics-bar">
+        <div>
+          <div class="metric-val">3</div>
+          <div class="metric-lbl">Mini Games</div>
+        </div>
+        <div>
+          <div class="metric-val">5m</div>
+          <div class="metric-lbl">Daily Target</div>
+        </div>
+        <div>
+          <div class="metric-val">100</div>
+          <div class="metric-lbl">Focus Score</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Clear How to Play Instructions Section -->
+    <section class="instructions-grid">
+      <div class="instruction-card">
+        <div class="game-icon">🧩</div>
+        <h3>1. Memory Matrix</h3>
+        <p>A blue pattern flashes on the grid. Memorize the pattern and tap the same squares after they disappear!</p>
+        <span class="key-hint">Focus: Spatial Memory</span>
+      </div>
+
+      <div class="instruction-card">
+        <div class="game-icon">⚡</div>
+        <h3>2. Speed Math</h3>
+        <p>Mental math equations appear. Select the correct answer as fast as possible before time runs out!</p>
+        <span class="key-hint">Focus: Mental Agility</span>
+      </div>
+
+      <div class="instruction-card">
+        <div class="game-icon">🔢</div>
+        <h3>3. Schulte Table</h3>
+        <p>Tap the shuffled numbers from <strong>1 to 25</strong> in numerical order as fast as possible.</p>
+        <span class="key-hint">Penalty: Wrong tap adds +1 sec</span>
+      </div>
+    </section>
+
+    <!-- Workout Interactive Arena -->
+    <main class="arena-card" id="workout-arena">
+      <!-- Dynamic game state injected via static/script.js -->
+    </main>
+
+    <!-- Dashboard Chart Section -->
+    <section class="chart-card">
+      <h2 style="font-size:1.6rem; margin-bottom:0.5rem; color:var(--text-dark);">Focus Trend Dashboard</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;" id="correlation-text">
+        Complete 7 daily workouts to unlock your personal focus correlation insight.
+      </p>
+
+      <canvas id="trendChart"></canvas>
+
+      <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1.25rem; font-size:0.85rem; font-weight:700;">
+        <span style="color:var(--primary-blue);">&mdash;&mdash; Focus Score (0 - 100)</span>
+        <span style="color:var(--accent-orange);">&bull; &bull; &bull; Self Rating (1 - 5)</span>
+      </div>
+
+      <p style="text-align:center; color:var(--text-muted); font-size:0.8rem; margin-top:1.5rem;">
+        * Note: Focus Gym is for personal habit tracking and skill practice. It is not a medical diagnostic tool.
+      </p>
+    </section>
+
+  </div>
+
+  <script src="/static/games/matrix.js"></script>
+  <script src="/static/games/math.js"></script>
+  <script src="/static/games/schulte.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
